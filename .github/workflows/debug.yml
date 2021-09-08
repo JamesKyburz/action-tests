@@ -7,7 +7,7 @@ on:
   pull_request:
     types: [opened, reopened, synchronize, edited]
     branches:
-      - concurrent-tests
+      - main
 
 jobs:
   debug:
