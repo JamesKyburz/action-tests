@@ -13,6 +13,9 @@ on:
 jobs:
   debug:
     runs-on: ubuntu-latest
+    concurrency:
+      group: debug-debug
+      cancel-in-progress: false
     steps:
       - name: context
         uses: jameskyburz/github-script@main
