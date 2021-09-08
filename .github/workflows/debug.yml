@@ -2,6 +2,7 @@ name: debug concurrency
 
 concurrency:
   group: debug
+  cancel-in-progress: false
 
 on:
   pull_request:
