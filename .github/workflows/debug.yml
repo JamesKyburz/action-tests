@@ -2,16 +2,20 @@ name: debug concurrency
 
 concurrency:
   group: debug
+  cancel-in-progress: false
 
 on:
   pull_request:
     types: [opened, reopened, synchronize, edited]
     branches:
-      - concurrent-tests
+      - main
 
 jobs:
   debug:
     runs-on: ubuntu-latest
+    concurrency:
+      group: debug-debug
+      cancel-in-progress: false
     steps:
       - name: context
         uses: jameskyburz/github-script@main
@@ -25,4 +29,5 @@ jobs:
             console.log('sleeping')
             await new Promise(x => setTimeout(x, 15000))
             console.log('awake')
+
 
